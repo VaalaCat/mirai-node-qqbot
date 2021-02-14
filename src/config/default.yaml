@@ -4,7 +4,7 @@ basic:
   qqid: 123123123
   authKey: 123123123
   adminqqid: 123123123
-  host: vaala.cloud
+  host: 127.0.0.1
   port: 9000
 
 # 这里定义的是命令的格式，2是一个参数，1是不带参数，permission指定权限，0-4，4是管理员

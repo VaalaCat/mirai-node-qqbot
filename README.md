@@ -2,6 +2,8 @@
 
 > 该项目使用了 `mirai-ts` 和 `mirai-api-http` 构建了一个简易的 qq 机器人
 
+使用 `#pa` 的结构调用插件，插件名要使用井号开头
+
 ## 项目结构说明
 
 - `src/access_control.js`
