@@ -1,0 +1,35 @@
+{
+  "name": "qqbot",
+  "version": "1.0.0",
+  "description": "a mirai qqbot",
+  "main": "main.js",
+  "dependencies": {
+    "config": "^3.3.2",
+    "cron": "^1.8.2",
+    "js-yaml": "^3.14.0",
+    "jsdom": "^16.4.0",
+    "mirai-ts": "^0.7.6",
+    "request": "^2.88.2",
+    "require-all": "^3.0.0",
+    "sqlite3": "^5.0.0",
+    "ws": "^7.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VaalaCat/qqbot.git"
+  },
+  "keywords": [
+    "qqbot"
+  ],
+  "author": "VaalaCat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VaalaCat/qqbot/issues"
+  },
+  "homepage": "https://github.com/VaalaCat/qqbot#readme"
+}

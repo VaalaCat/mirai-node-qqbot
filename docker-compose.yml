@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  node:
+    image: node:10
+    volumes:
+      - ./src:/var/www/qqbot
+    restart: always
+    working_dir: /var/www/qqbot
+    entrypoint:
+      - sh
+      - docker-entrypoint.sh
+    environment: 
+      - URL=http://127.0.0.1:9000/
+      - WSURL=ws://127.0.0.1:9000/
+      - QQID=123123
+      - AUTHKEY=123123
+      - ADMINQQID=123123
+      - HOST=127.0.0.1
+      - PORT=9000
