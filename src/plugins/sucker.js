@@ -9,7 +9,8 @@ async function func_sucker(mirai, sender, msg, query) {
 
         function callback(error, response, body) {
             if (!error && response.statusCode == 200) {
-                msg.reply(body)
+                ret = body.split('\n')
+                msg.reply(ret[1])
                 resolve(0);
             }
             else {
