@@ -98,9 +98,13 @@ const func_chouxiang = async (mirai, sender, msg, query) => {
 
 
 const chouxiang = (origin) => {
-    ans = origin
+    pre = origin
     for (i in transTable) {
-        ans = ans.replace(i, transTable[i])
+        ans = pre.replace(i, transTable[i])
+        while(pre!=ans){
+            pre=ans
+            ans = ans.replace(i, transTable[i])
+        }
     }
     return ans;
 }
