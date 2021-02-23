@@ -1,6 +1,4 @@
 basic:
-  url: "http://127.0.0.1:9000/"
-  wsurl: "ws://127.0.0.1:9000/"
   qqid: 123123123
   authKey: 123123123
   adminqqid: 123123123
@@ -52,6 +50,10 @@ func:
 
   sucker:
     query: 1
+    base: 0
+
+  chouxiang:
+    query: 2
     base: 0
 
 user:
