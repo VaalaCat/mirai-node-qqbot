@@ -32,11 +32,6 @@ func:
     query: 2
     base: 0
 
-  time:
-    query: 1
-    strict: 1
-    base: 0
-
   rand:
     query: 2
     base: 0
@@ -61,8 +56,16 @@ func:
     query: 1
     base: 0
 
+  setu:
+    query: 1
+    base: 0
+    strict: 1
+
 user:
   root:
+    base: 5
+
+  adminqq:
     base: 5
 
   "123123":

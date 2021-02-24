@@ -252,6 +252,7 @@ async function filter(sender, mode, query) {
         if (user != 0) {
             let ban = user.ban.split(",");
             let allow = user.allow.split(",");
+            if (user.base >= 5) { ans += user.base; }
             if (user.ban != "" ? ban.indexOf(query[0]) != -1 : 0) { ans -= 2; }
             else if (user.base >= cmd.base) {
                 if (cmd.strict == "1") {
