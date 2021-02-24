@@ -7,12 +7,16 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "runtimeExecutable": "C:\\Users\\vaala\\anaconda3\\node.exe",
+            "name": "Launch via NPM",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "start"
+            ],
+            "port": 9229,
             "skipFiles": [
                 "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/${file}"
+            ]
         }
     ]
 }

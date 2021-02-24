@@ -17,19 +17,20 @@
   "devDependencies": {},
   "scripts": {
     "test": "node test.js",
-    "start": "node main.js"
+    "start": "node main.js",
+    "dev": "node main.js --inspect-brk=0.0.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VaalaCat/qqbot.git"
+    "url": "git+https://github.com/VaalaCat/mirai-node-qqbot.git"
   },
   "keywords": [
-    "qqbot"
+    "mirai-node-qqbot"
   ],
   "author": "VaalaCat",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/VaalaCat/qqbot/issues"
+    "url": "https://github.com/VaalaCat/mirai-node-qqbot/issues"
   },
-  "homepage": "https://github.com/VaalaCat/qqbot#readme"
+  "homepage": "https://github.com/VaalaCat/mirai-node-qqbot#readme"
 }

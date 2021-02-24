@@ -3,3 +3,4 @@ test.js
 *.db
 docker-compose-dev.yml
 default.yaml
+docker-entrypoint.dev.sh

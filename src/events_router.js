@@ -18,7 +18,7 @@ var format = config.get("func");
 var menu = Object.keys(format);
 
 async function register_plugins() {
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         for (i in menu) {
             eventEmitter.on(menu[i], async (mirai, sender, msg, query) => {
                 try {
@@ -82,7 +82,7 @@ async function selector(mirai, msg) {
             }
         }
         //这里添加关键词监听
-        
+
     })
 }
 
