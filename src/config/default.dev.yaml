@@ -61,6 +61,10 @@ func:
     base: 0
     strict: 1
 
+  strict:
+    query: 5
+    base: 4
+
 user:
   root:
     base: 5

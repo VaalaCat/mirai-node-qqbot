@@ -116,5 +116,8 @@ async function all_func() {
 }
 
 module.exports = {
-    func_ban
+    func_ban,
+    is_func,
+    is_qq,
+    all_func
 }
