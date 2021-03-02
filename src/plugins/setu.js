@@ -4,7 +4,7 @@ const func_setu = async (mirai, sender, msg, query) => {
     return new Promise(async (resolve, reject) => {
         let apikey = process.env.SETUAPIKEY || ''
         var options = {
-            "url": "https://api.lolicon.app/setu/?apikey=" + apikey + "&r18=0&size1200=true",
+            "url": "https://api.lolicon.app/setu/?apikey=" + apikey + "&r18=0&size1200=1",
             "method": "GET"
         };
         const callback = (error, response, body) => {
