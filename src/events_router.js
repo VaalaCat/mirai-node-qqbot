@@ -53,13 +53,9 @@ async function selector(mirai, msg) {
 
         if (query.indexOf("#") == 0) {
             for (let i in menu) {
-                //在menu中找到了相应的方法
                 if (query.indexOf(menu[i]) == 1 && (query.indexOf(" ") == menu[i].length + 1 || query.length == menu[i].length + 1)) {
-                    //去掉sharp号
                     query = query.substring(1);
-                    //依照空格分隔请求，计算数组长度校验format调用格式
                     query = query.split(" ");
-                    //删除空的元素
                     for (let i in query) {
                         if (query[i] == "") {
                             query.splice(i, 1);
@@ -68,7 +64,8 @@ async function selector(mirai, msg) {
                     //权限正确
                     let flag = await access_control.filter(sender, mode, query);
                     if (flag) {
-                        if (query.length == format[menu[i]].query) {
+                        if (query.length == format[menu[i]].query || format[menu[i]].query == "strings") {
+                            query = format[menu[i]].query == "strings" ? Array(query[0], msg.plain.slice(msg.plain.indexOf(" ") + 1)) : query
                             //这里传进去的msg不是字符串哦，query是以第一个元素为命令，后面都是参数的数据组成的数组，qqid指的是bot的qq
                             eventEmitter.emit(menu[i], mirai, sender, msg, query);
                             resolve(0);
@@ -82,7 +79,6 @@ async function selector(mirai, msg) {
             }
         }
         //这里添加关键词监听
-
     })
 }
 

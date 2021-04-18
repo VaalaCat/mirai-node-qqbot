@@ -40,6 +40,10 @@ func:
     query: 4
     base: 4
 
+  time:
+    query: 1
+    base: 0
+
   unban:
     query: 4
     base: 4
@@ -49,7 +53,7 @@ func:
     base: 0
 
   chouxiang:
-    query: 2
+    query: strings
     base: 0
   
   hello:
@@ -64,6 +68,10 @@ func:
   strict:
     query: 5
     base: 4
+
+  alert:
+    query: 3
+    base: 0
 
 user:
   root:
