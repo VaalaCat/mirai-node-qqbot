@@ -98,3 +98,9 @@ group:
       - "time"
     ban:
       - "ip"
+  "591809200":
+    base: 0
+    allow:
+      - "setu"
+    ban:
+      - "sudo"
