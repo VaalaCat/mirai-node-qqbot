@@ -1,0 +1,24 @@
+## 配置文件中的值，全为默认值
+
+## 启用的 adapter, 内置有 http, ws, reverse-ws, webhook
+adapters:
+  - http
+  - ws
+
+## 是否开启认证流程, 若为 true 则建立连接时需要验证 verifyKey
+## 建议公网连接时开启
+enableVerify: true
+verifyKey: 1234567890
+
+debug: false
+singleMode: false
+cacheSize: 4096
+adapterSettings:
+  http:
+    host: 0.0.0.0
+    port: 8080
+    cors: *
+  ws:
+    host: 0.0.0.0
+    port: 8080
+    reservedSyncId: -1

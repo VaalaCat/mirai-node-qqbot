@@ -4,3 +4,4 @@ test.js
 docker-compose-dev.yml
 default.yaml
 docker-entrypoint.dev.sh
+src/config/setting.yml

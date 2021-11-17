@@ -4,14 +4,14 @@
   "description": "a mirai qqbot",
   "main": "main.js",
   "dependencies": {
-    "config": "^3.3.2",
+    "config": "^3.3.6",
     "js-yaml": "^3.14.0",
     "jsdom": "^16.4.0",
-    "mirai-ts": "^0.7.6",
+    "mirai-ts": "^2.0.0",
     "node-schedule": "^2.0.0",
     "request": "^2.88.2",
     "require-all": "^3.0.0",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^4.2.0",
     "validator": "^13.5.2",
     "ws": "^7.3.1"
   },
