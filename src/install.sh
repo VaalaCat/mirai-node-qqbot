@@ -9,3 +9,9 @@ if [ -f "/var/www/qqbot/config/default.yaml" ]; then
 fi
 
 cp "/var/www/qqbot/config/default.dev.yaml" "/var/www/qqbot/config/default.yaml"
+
+if [ -f "/var/www/qqbot/config/setting.yaml" ]; then
+  rm "/var/www/qqbot/config/setting.yaml"
+fi
+
+cp "/var/www/qqbot/config/setting.sample.yaml" "/var/www/qqbot/config/setting.yaml"
