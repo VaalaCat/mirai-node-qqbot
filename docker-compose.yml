@@ -2,10 +2,10 @@ version: '3.1'
 
 services:
   node:
-    image: node:17
+    build: .
     volumes:
       - ./src:/var/www/qqbot
-    restart: always
+    restart: unless-stopped
     working_dir: /var/www/qqbot
     entrypoint:
       - sh

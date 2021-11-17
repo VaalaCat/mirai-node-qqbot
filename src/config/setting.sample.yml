@@ -17,7 +17,7 @@ adapterSettings:
   http:
     host: 0.0.0.0
     port: 8080
-    cors: *
+    cors: "*"
   ws:
     host: 0.0.0.0
     port: 8080
