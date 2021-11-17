@@ -1,7 +1,3 @@
-if [ ! -d "/var/www/qqbot/node_modules" ]; then
-  npm install
-fi
-
 if [ -f "/var/www/qqbot/config/default.yaml" ]; then
   rm "/var/www/qqbot/config/default.yaml"
 fi
