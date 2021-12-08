@@ -73,6 +73,11 @@ func:
     query: 3
     base: 0
 
+  acg:
+    query: 1
+    base: 0
+
+
 user:
   root:
     base: 5
@@ -93,3 +98,9 @@ group:
       - "time"
     ban:
       - "ip"
+  "591809200":
+    base: 0
+    allow:
+      - "setu"
+    ban:
+      - "sudo"

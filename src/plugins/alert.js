@@ -11,8 +11,8 @@ function time_checker(timer) {
 async function func_alert(mirai, sender, msg, query) {
     return new Promise(function (resolve, reject) {
         if (!time_checker(query)) { msg.reply('格式错误'); resolve(1); return }
-        msg.reply('小vaala会在：' + new Date() + ' 时提醒宁')
         let alertDate = new Date(query[1])
+        msg.reply('小vaala会在：' + alertDate + ' 时提醒宁')
         schedule.scheduleJob(alertDate, () => {
             msg.reply('小Vaala提醒宁：' + query[2], true);
         })
