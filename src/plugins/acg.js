@@ -1,4 +1,6 @@
 const request = require("request");
+const config = require("config");
+const conf = config.get("basic");
 
 const func_acg = async (mirai, sender, msg, query) => {
     return new Promise(async (resolve, reject) => {
@@ -6,6 +8,10 @@ const func_acg = async (mirai, sender, msg, query) => {
             "url": "https://www.rrll.cc/tuceng/ecy.php?return=json",
             "method": "GET"
         };
+        console.log(conf)
+        if (typeof conf.proxy !== "undefined") {
+            options.proxy = conf.proxy
+        }
         const callback = (error, response, body) => {
             if (!error && response.statusCode == 200) {
                 ret = JSON.parse(body);
