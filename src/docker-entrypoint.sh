@@ -7,6 +7,6 @@ sed -i '/host/s/host: .*/host: '"$HOST"'/g' /var/www/qqbot/config/setting.yml;
 sed -i '/port/s/port: .*/port: '"$PORT"'/g' /var/www/qqbot/config/setting.yml;
 sed -i '/  adminqq:/s/  adminqq:/  '"$ADMINQQID"':/g' /var/www/qqbot/config/default.yaml;
 sed -i 's/verifyKey: .*/verifyKey: '"$VERIFYKEY"'/g' /var/www/qqbot/config/setting.yml;
-
+sed -i '/proxy/s/proxy: .*/proxy: '"$PROXY"'/g' /var/www/qqbot/config/default.yaml;
 
 SETUAPIKEY=$SETUAPIKEY npm run start
