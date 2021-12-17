@@ -8,6 +8,7 @@
     "js-yaml": "^3.14.0",
     "jsdom": "^16.4.0",
     "mirai-ts": "^2.0.0",
+    "node-ical": "^0.14.1",
     "node-schedule": "^2.0.0",
     "request": "^2.88.2",
     "require-all": "^3.0.0",

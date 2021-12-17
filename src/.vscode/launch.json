@@ -5,6 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Test Plugin",
+            "request": "launch",
+            "runtimeArgs": [
+                "run",
+                "test"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node",
+            "port": 9229
+        },
+
+    
+        {
             "type": "node",
             "request": "launch",
             "name": "Launch via NPM",
