@@ -23,5 +23,6 @@ async function func_time(mirai, sender, msg, query) {
 }
 
 module.exports = {
-    func_time
+    func_time,
+    getFormatDate
 }
