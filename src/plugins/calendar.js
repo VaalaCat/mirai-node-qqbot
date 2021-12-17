@@ -46,8 +46,8 @@ async function func_calendar(mirai, sender, msg, query) {
                     else if (parseInt(query[1]) != NaN && parseInt(query[1]) <= 10 && parseInt(query[1]) >= 0) {
                         let cur = parseInt(query[1])
                         output += `比赛名称: ${eve[cur].summary}\n`
-                        output += `开始时间: ${eve[cur].start.getFullYear()}/${eve[cur].start.getMonth()}/${eve[cur].start.getDate()}->${eve[cur].start.toLocaleTimeString('en-GB')}\n`
-                        output += `结束时间: ${eve[cur].end.getFullYear()}/${eve[cur].end.getMonth()}/${eve[cur].end.getDate()}->${eve[cur].end.toLocaleTimeString('en-GB')}\n`
+                        output += `开始时间: ${eve[cur].start.getFullYear()}/${eve[cur].start.getMonth() + 1}/${eve[cur].start.getDate()}->${eve[cur].start.toLocaleTimeString('en-GB')}\n`
+                        output += `结束时间: ${eve[cur].end.getFullYear()}/${eve[cur].end.getMonth() + 1}/${eve[cur].end.getDate()}->${eve[cur].end.toLocaleTimeString('en-GB')}\n`
                         output += `链接地址: ${eve[cur].url}\n`
                         output += `时区: ${eve[cur].vtimezone}\n`
                         output += `比赛详情: ${eve[cur].description}\n`
