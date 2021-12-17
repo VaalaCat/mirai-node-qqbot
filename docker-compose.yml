@@ -13,3 +13,5 @@ services:
       - ADMINQQID=123123
       - HOST=127.0.0.1
       - PORT=9000
+      - SETUAPIKEY=123123123
+      - PROXY=http://127.0.0.0:1234

@@ -47,7 +47,7 @@ async function main() {
 	await events_router.register_plugins();
 	await access_control.init_database();
 	mirai.on("message", (msg) => {
-		console.log(msg.messageChain);
+		// console.log(msg.messageChain);
 		event_handler(mirai, msg);
 	});
 	mirai.listen();

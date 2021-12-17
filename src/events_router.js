@@ -68,6 +68,7 @@ async function selector(mirai, msg) {
 						if (query.length == format[menu[i]].query || format[menu[i]].query == "strings") {
 							query = format[menu[i]].query == "strings" ? Array(query[0], msg.plain.slice(msg.plain.indexOf(" ") + 1)) : query
 							//这里传进去的msg不是字符串哦，query是以第一个元素为命令，后面都是参数的数据组成的数组，qqid指的是bot的qq
+							console.log("Exec:", query)
 							eventEmitter.emit(menu[i], mirai, sender, msg, query);
 							resolve(0);
 						}
