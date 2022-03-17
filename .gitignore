@@ -6,3 +6,4 @@ default.yaml
 docker-entrypoint.dev.sh
 src/config/setting.yml
 .DS_Store
+.vscode
