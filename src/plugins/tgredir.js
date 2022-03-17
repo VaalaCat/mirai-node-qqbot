@@ -19,12 +19,13 @@ async function func_tgredir(mirai, sender, msg, query) {
 
 		senderName += `(${sender.split(":")[1]})说：\n`
 		senderName = senderName.replace("80000000", "匿名")
-		for(singleMsg in msg){
-			if(singleMsg.type == "Plain"){
-				bot.sendMessage(query[1], senderName + query[0]);
-			} else if (singleMsg.type == "Image"){
-				bot.sendMessage(query[1], senderName);
-				bot.sendPhoto(query[1], singleMsg.url);
+		for(singleMsg in msg.messageChain){
+			console.log(msg.messageChain[singleMsg])
+			if(msg.messageChain[singleMsg].type == "Plain"){
+				bot.sendMessage(query[1], senderName + msg.messageChain[singleMsg].text);
+			} else if (msg.messageChain[singleMsg].type == "Image"){
+				bot.sendMessage(query[1], senderName.replace("说：\n", "") + "发来一张图片");
+				bot.sendPhoto(query[1], msg.messageChain[singleMsg].url);
 			}
 		}
 		
