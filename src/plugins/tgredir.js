@@ -19,7 +19,15 @@ async function func_tgredir(mirai, sender, msg, query) {
 
 		senderName += `(${sender.split(":")[1]})说：\n`
 		senderName = senderName.replace("80000000", "匿名")
-		bot.sendMessage(query[1], senderName + query[0]);
+		for(singleMsg in msg){
+			if(singleMsg.type == "Plain"){
+				bot.sendMessage(query[1], senderName + query[0]);
+			} else if (singleMsg.type == "Image"){
+				bot.sendMessage(query[1], senderName);
+				bot.sendPhoto(query[1], singleMsg.url);
+			}
+		}
+		
 	})
 }
 
