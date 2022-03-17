@@ -10,7 +10,9 @@ const bot = new TelegramBot(tgtoken, {
 	},
 });
 bot.on('message', (msg) => {
-	bot.sendMessage(msg.chat.id, `消息${msg.text}来自${msg.chat.id}`);
+	if(msg.text.startsWith("/id")){
+		bot.sendMessage(msg.chat.id, `${msg.chat.id}`);
+	}
 })
 // listen groupid tgchatid
 async function func_listen(mirai, sender, msg, query) {
