@@ -6,6 +6,8 @@ var sqlite3 = require("sqlite3");
 
 const access_control = require("./access_control");
 const { resolve } = require('path');
+const { func_talk } = require('./plugins/talk');
+const { isAt } = require('mirai-ts/dist/utils/check');
 
 const eventEmitter = new EventEmitter();
 
@@ -15,6 +17,7 @@ var plugins = require("require-all")({
 })
 
 var format = config.get("func");
+var basicConfig = config.get("basic");
 var menu = Object.keys(format);
 
 async function register_plugins() {
@@ -79,6 +82,15 @@ async function selector(mirai, msg) {
 					}
 				}
 			}
+		}
+		// redir nonFunc FriendMessage and TempMessage or Ated msg to admin qqid
+		else if (mode == "FriendMessage" || mode == "TempMessage" || msg.isAt()) {
+			senderName = (typeof msg.sender.memberName == "undefined" ? msg.sender.nickname : msg.sender.memberName);
+			if (mode == "TempMessage" || mode == "GroupMessage") {
+				senderName ="来自 "+ msg.sender.group.name+" 的 "+senderName;
+			}
+			senderName += "说：\n"
+			func_talk(mirai, sender, msg, ["talk", "qq", basicConfig.adminqqid, sender+"\n"+senderName+query]);
 		}
 		//这里添加关键词监听
 	})
