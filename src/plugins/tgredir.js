@@ -16,7 +16,9 @@ async function func_tgredir(mirai, sender, msg, query) {
 		// if (mode == "TempMessage" || mode == "GroupMessage") {
 		// 	senderName ="来自 "+ msg.sender.group.name+" 的 "+senderName;
 		// }
+
 		senderName += `(${sender.split(":")[1]})说：\n`
+		senderName = senderName.replace("80000000", "匿名")
 		bot.sendMessage(query[1], senderName + query[0]);
 	})
 }
