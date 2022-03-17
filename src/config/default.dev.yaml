@@ -77,6 +77,14 @@ func:
   acg:
     query: 1
     base: 0
+  
+  talk:
+    query: 4
+    base: 4
+
+  listen:
+    query: 3
+    base: 4
 
 user:
   root:

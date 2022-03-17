@@ -1,5 +1,3 @@
-const request = require("request");
-
 //#talk qq/group/tmp xxxx[:xxxx] [message]
 // 0     1                   2           3
 // talk to a friend or group

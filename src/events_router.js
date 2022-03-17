@@ -5,9 +5,11 @@ const config = require("config");
 var sqlite3 = require("sqlite3");
 
 const access_control = require("./access_control");
+const message_listener = require("./message_listener");
 const { resolve } = require('path');
 const { func_talk } = require('./plugins/talk');
 const { isAt } = require('mirai-ts/dist/utils/check');
+const { func_tgredir } = require('./plugins/tgredir');
 
 const eventEmitter = new EventEmitter();
 
@@ -91,6 +93,14 @@ async function selector(mirai, msg) {
 			}
 			senderName += "说：\n"
 			func_talk(mirai, sender, msg, ["talk", "qq", basicConfig.adminqqid, sender+"\n"+senderName+query]);
+		}
+		//listen specific group message
+		else if (mode == "GroupMessage") {
+			if ((await message_listener.getGroupBehavior(msg.sender.group.id))!=0) {
+				redirDist=await message_listener.getGroupBehavior(msg.sender.group.id);
+				func_tgredir(mirai, sender, msg, [query,redirDist.behave]);
+				console.log("msg redir to tg")
+			}
 		}
 		//这里添加关键词监听
 	})
