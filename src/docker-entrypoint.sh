@@ -9,4 +9,4 @@ sed -i '/  adminqq:/s/  adminqq:/  '"$ADMINQQID"':/g' /var/www/qqbot/config/defa
 sed -i 's/verifyKey: .*/verifyKey: '"$VERIFYKEY"'/g' /var/www/qqbot/config/setting.yml;
 sed -i '/proxy/s/proxy: .*/proxy: '"$PROXY"'/g' /var/www/qqbot/config/default.yaml;
 
-SETUAPIKEY=$SETUAPIKEY REDIRDIST=$REDIRDIST TGTOKEN=$TGTOKEN npm run start
+SETUAPIKEY=$SETUAPIKEY TGTOKEN=$TGTOKEN npm run start

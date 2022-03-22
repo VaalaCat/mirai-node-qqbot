@@ -48,6 +48,17 @@ function message_to_string(messageChain) {
 	return ans;
 }
 
+function getQoutes(messageChain) {
+	let ans = "";
+	for (i in messageChain) {
+		if (messageChain[i].type == "Quote") {
+			ans += messageChain[i].origin[0].text;
+			break
+		}
+	}
+	return ans.split(" ")[0].split("\n")[0];
+}
+
 async function selector(mirai, msg) {
 	return new Promise(async function (resolve, reject) {
 		//暂时不处理图片
@@ -86,7 +97,7 @@ async function selector(mirai, msg) {
 			}
 		}
 		// redir nonFunc FriendMessage and TempMessage or Ated msg to admin qqid
-		else if (mode == "FriendMessage" || mode == "TempMessage" || msg.isAt()) {
+		else if ((mode == "FriendMessage" || mode == "TempMessage" || msg.isAt()) && msg.sender.id != basicConfig.adminqqid) {
 			senderName = (typeof msg.sender.memberName == "undefined" ? msg.sender.nickname : msg.sender.memberName);
 			if (mode == "TempMessage" || mode == "GroupMessage") {
 				senderName ="来自 "+ msg.sender.group.name+" 的 "+senderName;
@@ -95,11 +106,18 @@ async function selector(mirai, msg) {
 			func_talk(mirai, sender, msg, ["talk", "qq", basicConfig.adminqqid, sender+"\n"+senderName+query]);
 		}
 		//listen specific group message
-		else if (mode == "GroupMessage") {
-			if ((await message_listener.getGroupBehavior(msg.sender.group.id))!=0) {
+		else if (mode == "GroupMessage" && (await message_listener.getGroupBehavior(msg.sender.group.id))!=0) {
 				redirDist=await message_listener.getGroupBehavior(msg.sender.group.id);
+				console.log("TG redirDist: " + redirDist)
 				func_tgredir(mirai, sender, msg, [query,redirDist.behave]);
-				console.log("msg redir to tg")
+		}
+		//adminqq reply to message
+		else if (getQoutes(msg.messageChain)!=0 && msg.sender.id == basicConfig.adminqqid) {
+			msgDist=getQoutes(msg.messageChain)
+			if(msgDist.indexOf(":")==-1){
+				func_talk(mirai, sender, msg, ["talk", "qq", msgDist, query]);
+			}else{
+				func_talk(mirai, sender, msg, ["talk", "tmp", msgDist, query]);
 			}
 		}
 		//这里添加关键词监听
