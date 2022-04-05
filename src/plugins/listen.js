@@ -10,16 +10,19 @@ const bot = new TelegramBot(tgtoken, {
 	},
 });
 bot.on('message', (msg) => {
-	if(msg.text.startsWith("/id")){
+	if (msg.text.startsWith("/id")) {
 		bot.sendMessage(msg.chat.id, `${msg.chat.id}`);
 	}
 })
-// listen groupid tgchatid
+// listen groupid tgchatid/function
 async function func_listen(mirai, sender, msg, query) {
 	return new Promise(function (resolve, reject) {
-		if (query[2] != null) {
+		if (query[2] != "delete") {
 			message_listener.listenGroup(query[1], query[2]);
 			msg.reply(`群聊${query[1]}的消息将会转发到${query[2]}`);
+		} else if (query[2] == "delete") {
+			message_listener.deleteListenEvent(query[1]);
+			msg.reply(`消息来源${query[1]}的消息转发规则已删除`);
 		}
 	});
 }
