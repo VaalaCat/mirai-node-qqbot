@@ -7,10 +7,10 @@ var sqlite3 = require("sqlite3");
  * @param {*} behave 监听行为
  * @returns {boolean} 是否成功
  */
-async function listenGroup(group_id,behave){
+async function listenGroup(group_id, behave) {
 	return new Promise((resolve, reject) => {
 		let database = new sqlite3.Database("./data/events.db", (error) => { if (error) { console.log("数据库启动错误"); } });
-		database.run("insert into listen(groupid,behave) values (?,?)", [group_id,behave], (error) => {
+		database.run("insert into listen(groupid,behave) values (?,?)", [group_id, behave], (error) => {
 			if (error) {
 				resolve(1);
 			}
@@ -24,7 +24,7 @@ async function listenGroup(group_id,behave){
  * @param {*} group_id 群组id
  * @returns {*} 返回监听行为
  */
-async function getGroupBehavior(group_id){
+async function getGroupBehavior(group_id) {
 	return new Promise((resolve, reject) => {
 		let database = new sqlite3.Database("./data/events.db", (error) => { if (error) { console.log("数据库启动错误"); } });
 		database.get("select * from listen where groupid = ?", group_id, (error, row) => {
@@ -36,7 +36,31 @@ async function getGroupBehavior(group_id){
 	})
 }
 
+/**
+ * 删除群组监听
+ * @param {*} group_id 群组id
+ * @returns {*} 返回操作是否成功
+ */
+async function deleteListenEvent(group_id) {
+	return new Promise(async (resolve, reject) => {
+		let database = new sqlite3.Database("./data/events.db", (error) => { if (error) { console.log("数据库启动错误") } })
+		let behave = await getGroupBehavior(group_id)
+		if (behave == 0) {
+			resolve(1);
+		} else {
+			database.run("delete from listen where groupid = ?", group_id, (error) => {
+				if (error) {
+					console.log(error);
+					resolve(1);
+				}
+			})
+		}
+		resolve(0);
+	})
+}
+
 module.exports = {
 	listenGroup,
-	getGroupBehavior
+	getGroupBehavior,
+	deleteListenEvent
 }
